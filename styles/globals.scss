@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dzu-dropzone {
+  overflow: none !important;
+  @apply shadow-card;
+}
+
+button:hover {
+  @apply transition-all duration-300 ease-in-out;
+}
