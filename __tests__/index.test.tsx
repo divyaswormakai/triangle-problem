@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import { render, screen } from "@testing-library/react";
-import Home from "..";
+import Home from "../pages";
 
 describe("General Page Render", () => {
   render(<Home />);

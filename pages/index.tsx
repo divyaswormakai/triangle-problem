@@ -16,12 +16,9 @@ export default function Home() {
   const [file, setFile] = useState<File | null>();
   const [maxRouteValue, setMaxRouteValue] = useState<IMaxRouteValue | null>();
 
-  const onDrop = useCallback(
-    (acceptedFiles: File[]) => {
-      setFile(acceptedFiles[0]);
-    },
-    [file],
-  );
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    setFile(acceptedFiles[0]);
+  }, []);
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     noKeyboard: true,
     accept: {
