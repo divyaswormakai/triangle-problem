@@ -19,6 +19,7 @@ export default function Home() {
   const onDrop = useCallback((acceptedFiles: File[]) => {
     setFile(acceptedFiles[0]);
   }, []);
+
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     noKeyboard: true,
     accept: {
@@ -78,6 +79,12 @@ export default function Home() {
     <div className="bg-gray-100">
       <main className={`mx-auto flex min-h-screen max-w-7xl flex-col p-24`}>
         <title>Triangle Problem | Mean Labs</title>
+        <h1 className="mb-2 text-center text-4xl font-bold">
+          Triangle Problem
+        </h1>
+        <h2 className="mb-8 text-center">
+          Select a file that contains triangle data to continue.
+        </h2>
         <div
           {...getRootProps({
             className:
@@ -85,7 +92,13 @@ export default function Home() {
           })}
         >
           <input {...getInputProps()} />
-          <p className="text-gray-500">Drag your files here</p>
+          <p className="text-gray-500">
+            Drag your files here
+            <br />
+            or
+            <br />
+            Click here to select a file
+          </p>
         </div>
         {file && (
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
@@ -115,21 +128,10 @@ export default function Home() {
         )}
         {triangleData.length > 0 && maxRouteValue?.maxTotal && (
           <div className="mt-8">
-            <div>
-              <h4 className="mb-4 text-xl">
-                Max Value:{" "}
-                <span className="font-bold">{maxRouteValue?.maxTotal}</span>
-              </h4>
-            </div>
-
-            <div className="max-w-7xl overflow-y-auto rounded-xl bg-gray-200 p-12">
-              <div className="flex w-fit flex-col ">
-                <DataInTriangle
-                  triangleData={triangleData}
-                  maxRouteValue={maxRouteValue}
-                />
-              </div>
-            </div>
+            <DataInTriangle
+              triangleData={triangleData}
+              maxRouteValue={maxRouteValue}
+            />
           </div>
         )}
       </main>
